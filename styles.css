@@ -1,0 +1,388 @@
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* --- Variáveis e Estilos Gerais --- */
+:root {
+    --primary-color: #d63384; /* Rosa mais sofisticado */
+    --secondary-color: #e83e8c; /* Rosa secundário */
+    --accent-color: #ffc8dd; /* Rosa claro para detalhes */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --background-light: #fff8fb; /* Fundo levemente rosa */
+    --card-bg: #ffffff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --font-heading: 'Great Vibes', cursive;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, #fff8fb 0%, #fff0f5 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Seção Hero --- */
+.hero-section {
+    position: relative;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: var(--border-radius);
+    color: var(--text-light);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+    background-size: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.decoration {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+
+.heart {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* --- Cabeçalhos de Seção --- */
+.section-header {
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* --- Contador de Dias --- */
+.counter-section {
+    padding: 40px 30px;
+    margin-bottom: 40px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.counter-section:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.counter {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    line-height: 1;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Mensagem de Amor --- */
+.message {
+    padding: 50px 30px;
+    margin-bottom: 40px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.message:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.message-content {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.message p {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.signature {
+    margin-top: 30px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+}
+
+/* --- Galeria de Fotos --- */
+.photo-gallery {
+    margin-bottom: 50px;
+}
+
+.photos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.photo-card {
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.photo-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.photo-card:hover .photo-frame {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(214, 51, 132, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-caption {
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.gallery-note {
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* --- Seção da Playlist (Spotify) --- */
+.playlist-section {
+    padding: 50px 30px;
+    margin-bottom: 40px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.playlist-section:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.playlist-content {
+    margin-top: 30px;
+}
+
+.spotify-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background-color: #1DB954;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-button:hover {
+    background-color: #1ed760;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(29, 185, 84, 0.4);
+}
+
+.spotify-button i {
+    font-size: 1.3rem;
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    margin-top: 60px;
+    padding: 25px 0;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer-content i {
+    color: var(--primary-color);
+    margin: 0 5px;
+}
+
+/* --- Responsividade para Telas Menores --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-section {
+        padding: 40px 15px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .counter {
+        font-size: 3.5rem;
+    }
+    
+    .photos {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .photo-card {
+        width: 100%;
+        max-width: 350px;
+        height: 300px;
+    }
+    
+    .spotify-button {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .decoration {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .counter {
+        font-size: 2.8rem;
+    }
+    
+    .message p {
+        font-size: 1.1rem;
+    }
+}

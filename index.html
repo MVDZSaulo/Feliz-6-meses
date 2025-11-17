@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Ana Julia e Saulo] - Nosso Cantinho de Amor</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>Feliz 6 Meses, Meu Amor!</h1>
+                <p class="subtitle">Celebrando nosso amor a cada dia</p>
+            </div>
+            <div class="decoration">
+                <div class="heart"><i class="fas fa-heart"></i></div>
+            </div>
+        </header>
+
+        <section class="counter-section">
+            <div class="section-header">
+                <h2>Nossa Jornada</h2>
+                <p>Estamos juntos há exatamente:</p>
+            </div>
+            <div id="days-counter" class="counter">0 dias</div>
+            <input type="hidden" id="start-date" value="18/05/2025"> 
+        </section>
+
+        <section class="message">
+            <div class="message-content">
+                <div class="quote-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p>Desde o dia 18 de maio de 2025, nosso mundo ficou mais colorido. Cada momento ao seu lado é um presente. Você é a minha pessoa favorita!</p>
+                <p class="signature">Com todo meu amor para minha dona, Saulo🥰 </p>
+            </div>
+        </section>
+
+        <section class="photo-gallery">
+            <div class="section-header">
+                <h2>Nossas Memórias Mais Doces</h2>
+                <p>Momentos especiais que guardamos no coração</p>
+            </div>
+            <div class="photos">
+                <div class="photo-card">
+                    <div class="photo-frame">
+                        <img src="sua-foto-1.jpg" alt="[Descrição da Foto 1]">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">[Descrição da Foto 1]</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-frame">
+                        <img src="sua-foto-2.jpg" alt="[Descrição da Foto 2]">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">[Descrição da Foto 2]</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-card">
+                    <div class="photo-frame">
+                        <img src="sua-foto-3.jpg" alt="[Descrição da Foto 3]">
+                        <div class="photo-overlay">
+                            <div class="photo-caption">[Descrição da Foto 3]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="gallery-note">Aqui estão apenas algumas das nossas aventuras!</p>
+        </section>
+
+        <section class="playlist-section">
+            <div class="section-header">
+                <h2>Nossa Trilha Sonora</h2>
+                <p>Músicas que contam a nossa história e embalam nossos momentos</p>
+            </div>
+            <div class="playlist-content">
+                <a href="[LINK DA PLAYLIST DO SPOTIFY]" target="_blank" class="spotify-button">
+                    <i class="fab fa-spotify"></i>
+                    <span>Abrir Nossa Playlist no Spotify</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 - Feito com <i class="fas fa-heart"></i> para você</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateDaysCounter() {
+            const startDateString = document.getElementById('start-date').value.trim();
+            
+            // Verifica se a data foi fornecida
+            if (!startDateString) {
+                document.getElementById('days-counter').textContent = `[Insira a data]`;
+                return;
+            } 
+
+            // Parsing da data no formato DD/MM/AAAA
+            const parts = startDateString.split('/');
+            
+            // Garante que o formato tem 3 partes
+            if (parts.length !== 3) {
+                 document.getElementById('days-counter').textContent = `[Formato Inválido]`;
+                 return;
+            }
+            
+            // As partes são: [Dia, Mês, Ano]
+            const day = parseInt(parts[0], 10);
+            const month = parseInt(parts[1], 10) - 1; // Mês é 0-indexed no JS (Janeiro = 0)
+            const year = parseInt(parts[2], 10);
+
+            // Cria o objeto Date (correto para DD/MM/AAAA)
+            const startDate = new Date(year, month, day);
+            const today = new Date();
+
+            // Zera o horário para contar apenas dias inteiros
+            startDate.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+            
+            const timeDifference = today.getTime() - startDate.getTime();
+            const millisecondsPerDay = 1000 * 60 * 60 * 24;
+            // Usa Math.ceil para garantir que o dia de início seja contado
+            const daysTogether = Math.ceil(timeDifference / millisecondsPerDay);
+
+            // Verifica se a data é válida (ex: evita NaN)
+            if (isNaN(daysTogether)) {
+                document.getElementById('days-counter').textContent = `[Erro na Data]`;
+                return;
+            }
+
+            document.getElementById('days-counter').textContent = `${daysTogether} dias`;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateDaysCounter);
+    </script>
+</body>
+</html>
